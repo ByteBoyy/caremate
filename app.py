@@ -1,4 +1,9 @@
 # app.py (Updated for NDIS Support Coordination - Fixed Navigation)
+import utils.net
+import utils.clients
+import utils.http_session
+import utils.transport
+import utils.session
 import streamlit as st
 import sys
 import os

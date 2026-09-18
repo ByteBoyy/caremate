@@ -1,4 +1,5 @@
 import os
+import re
 from docxtpl import DocxTemplate
 
 
@@ -43,6 +44,8 @@ class DocumentService:
 
     def generate_docx_from_template(self, template_path: str, context_data: dict, filename: str) -> str:
         """Generate DOCX document from template and data"""
+        if not isinstance(filename, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", filename):
+            raise ValueError("Filename must be a simple DOCX name without path separators")
         if not os.path.exists(template_path):
             raise FileNotFoundError(f"Template file not found: {template_path}")
 
